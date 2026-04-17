@@ -1,0 +1,1 @@
+# semaforoesquerdadireita_opcoes
