@@ -1,0 +1,39 @@
+#define led_verdeesquerda 13
+#define led_vermelhoesquerda 12
+#define led_vermelhodireita 10
+#define led_verdedireita 11
+
+char led;
+void setup() {
+  Serial.begin(9600);
+  pinMode(led_verdeesquerda, OUTPUT);
+  pinMode(led_vermelhoesquerda, OUTPUT);
+  pinMode(led_verdedireita, OUTPUT);
+  pinMode(led_vermelhodireita, OUTPUT);
+
+}
+
+void loop() {
+  if(Serial.available() > 0){
+    led = Serial.read();
+    if(led == 'E' or led == 'e'){
+      digitalWrite(led_vermelhoesquerda, HIGH);
+      delay(5000);
+      digitalWrite(led_vermelhoesquerda, LOW);
+
+      digitalWrite(led_verdeesquerda, HIGH);
+      delay(5000);
+      digitalWrite(led_verdeesquerda, LOW);
+    }
+    else if(led == 'D' or led == 'd'){
+      digitalWrite(led_vermelhodireita, HIGH);
+      delay(5000);
+      digitalWrite(led_vermelhodireita, LOW);
+
+      digitalWrite(led_verdedireita, HIGH);
+      delay(5000);
+      digitalWrite(led_verdedireita, LOW);
+    }
+  }
+
+}
